@@ -8,6 +8,8 @@ import {
   FormControlLabel,
   Checkbox,
   Link,
+  Stack,
+  Container,
 } from "@mui/material";
 import React from "react";
 import blueGradient from "../assests/blueGradient.jpg";
@@ -34,12 +36,13 @@ export default function LoginPage() {
   };
 
   const womenStyle = {
-    width: "350px",
-    height: "350px",
+    width: "375px",
+    height: "375px",
     padding: "1rem",
     background: `url(${womenWithTab}) no-repeat`,
     backgroundSize: "contain",
     position: "relative",
+    borderRadius: "20px",
   };
 
   const leftSide = {
@@ -60,9 +63,9 @@ export default function LoginPage() {
 
   const textRightSide = {
     position: "absolute",
-    width: "150px",
+    width: "200px",
     height: "200px",
-    fontSize: "1.5rem",
+    fontSize: "1.25rem",
     fontFamily: "'Lumanosimo', 'cursive'",
   };
   return (
@@ -74,8 +77,11 @@ export default function LoginPage() {
               <Paper style={content} elevation={3}>
                 <Grid>
                   <Grid align="center" marginTop={2}>
-                    <Avatar marginBottom={2}></Avatar>
-                    <h3 style={{ marginTop: "0.5rem" }}>LOGIN</h3>
+                    <Avatar
+                      marginBottom={2}
+                      style={{ backgroundColor: "#1976d2" }}
+                    ></Avatar>
+                    <h3 style={{ marginTop: "1rem" }}>LOGIN</h3>
                   </Grid>
                   <TextField
                     label="Username"
@@ -84,7 +90,6 @@ export default function LoginPage() {
                     fullWidth
                     required
                     variant="standard"
-                    margin="normal"
                   ></TextField>
                   <TextField
                     label="Password"
@@ -110,14 +115,17 @@ export default function LoginPage() {
                   </Button>
                   <Grid marginTop={1}>
                     <h5 align="center">Login with others</h5>
-                    <Grid container marginTop={2} align="center" spacing={0}>
-                      <Grid xs={6} style={{ color: "red" }}>
-                        <GoogleIcon></GoogleIcon>oogle
-                      </Grid>
-                      <Grid xs={6} style={{ color: "blue" }}>
-                        <FacebookIcon></FacebookIcon>aceBook
-                      </Grid>
-                    </Grid>
+
+                    <Stack
+                      marginTop={1}
+                      direction="row"
+                      style={{ display: "flex", justifyContent: "center" }}
+                      spacing={2}
+                    >
+                      <GoogleIcon style={{ color: "red" }}></GoogleIcon>oogle
+                      <FacebookIcon style={{ color: "blue" }}></FacebookIcon>
+                      acebook
+                    </Stack>
                   </Grid>
                   <Grid container marginTop={2}>
                     <Grid item xs={12}>
@@ -136,15 +144,13 @@ export default function LoginPage() {
             </Grid>
           </Grid>
           <Grid item md={6} xs={12}>
-            <Grid style={rightSide}>
-              <Paper elevation={15}>
-                <Grid style={womenStyle}>
-                  <Grid style={textRightSide}>
-                    Very good jobs are waiting for you Login Now!!!
-                  </Grid>
-                </Grid>
-              </Paper>
-            </Grid>
+            <Container style={rightSide}>
+              <Container style={womenStyle}>
+                <Container style={textRightSide}>
+                  Very good jobs are waiting for you Login Now!!!
+                </Container>
+              </Container>
+            </Container>
           </Grid>
         </Grid>
       </Box>
