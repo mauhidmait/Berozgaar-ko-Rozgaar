@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const ProfilePage = () => {
-  const history = useHistory();
+const Profile = () => {
+    const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
@@ -10,15 +10,16 @@ const ProfilePage = () => {
       const token = localStorage.getItem('token');
 
       try {
-        const response = await fetch('/api/profile', {
+        const response = await fetch('http://127.0.0.1:5173/api/profile', {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `${token}`,
           },
         });
-
+        console.log(response);
         if (response.ok) {
           const profileData = await response.json();
-          setProfile(profileData);
+          console.log(profileData);
+          setProfile(profileData.profileData);
         } else {
           // Profile fetching failed
           // Handle error
@@ -33,7 +34,7 @@ const ProfilePage = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token from local storage
-    history.push('/login'); // Redirect to login page
+    navigate('/login'); // Redirect to login page
   };
 
   if (profile === null) {
@@ -50,4 +51,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default Profile;

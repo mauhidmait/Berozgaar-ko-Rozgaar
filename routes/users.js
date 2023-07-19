@@ -5,7 +5,8 @@ const utils = require('../lib/utils');
 
 
 router.get('/api/profile', utils.authMiddleware, (req, res, next) => {
-    const userId = req.userId; // Retrieve the user ID from the req object
+    // console.log(req.jwt);
+    const userId = req.jwt.sub; // Retrieve the user ID from the req object
   
     // Assuming you have a User model representing your MongoDB collection
     User.findById(userId)
@@ -59,6 +60,7 @@ router.post('/api/login', function(req, res, next){
 
 // Register a new user
 router.post('/api/register', function(req, res, next){
+    // res.send('register');
     const saltHash = utils.genPassword(req.body.password);
     
     const salt = saltHash.salt;

@@ -1,18 +1,25 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import RegisterPage from './RegisterPage';
-import LoginPage from './LoginPage';
-import ProfilePage from './ProfilePage';
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import Home from './home';
+import Login from './login';
+import Register from './register';
+import Profile from './profile';
+import './App.css'
 
-const App = () => {
+function App() {
+
   return (
-    <Router>
-      <Switch>
-        <Route path="/register" component={RegisterPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/profile" component={ProfilePage} />
-      </Switch>
-    </Router>
-  );
-};
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register />} />
+      <Route path='/profile' element={<Profile />} />
+    </Routes>
+    </BrowserRouter>
+      
+    </>
+  )
+}
 
-export default App;
+export default App

@@ -1,3 +1,4 @@
 node_modules/
 .env
 id_rsa_priv.pem
+client/demo/node_modules

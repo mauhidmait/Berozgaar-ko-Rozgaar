@@ -1,5 +1,5 @@
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 const path = require('path');
 
 /**
@@ -17,6 +17,7 @@ require('./config/database');
 
 // Must first load the models
 require('./models/user');
+app.use(cors());
 
 // Instead of using body-parser middleware, use the new Express implementation of the same thing
 app.use(express.json());
@@ -28,14 +29,14 @@ app.use(express.urlencoded({extended: true}));
 // Where Angular builds to - In the ./angular/angular.json file, you will find this configuration
 // at the property: projects.angular.architect.build.options.outputPath
 // When you run `ng build`, the output will go to the ./public directory
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 /**
  * -------------- ROUTES ----------------
  */
 
 // Imports all of the routes from ./routes/index.js
-app.use(require('./routes'));
+app.use(require('./routes/users'));
 
 
 /**
@@ -43,4 +44,9 @@ app.use(require('./routes'));
  */
 
 // Server listens on http://localhost:3000
-app.listen(5173);
+const PORT = 5173; // Define your desired port here
+const IP_ADDRESS = '127.0.0.1'; // Define your desired IP address here
+
+app.listen(PORT, IP_ADDRESS, () => {
+  console.log(`Server is running on http://${IP_ADDRESS}:${PORT}`);
+});

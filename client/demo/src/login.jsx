@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const RegisterPage = () => {
-  const history = useHistory();
+const Login = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleRegister = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/register', {
+      const response = await fetch('http://127.0.0.1:5173/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,10 +22,11 @@ const RegisterPage = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Registration successful
-        history.push('/login'); // Redirect to login page
+        // Login successful
+        localStorage.setItem('token', data.token); // Save token to local storage
+        navigate("/profile") // Redirect to profile page
       } else {
-        // Registration failed
+        // Login failed
         setErrorMessage(data.msg); // Set error message
       }
     } catch (error) {
@@ -35,9 +36,9 @@ const RegisterPage = () => {
 
   return (
     <div>
-      <h2>Register</h2>
+      <h2>Login</h2>
       {errorMessage && <p>{errorMessage}</p>}
-      <form onSubmit={handleRegister}>
+      <form onSubmit={handleLogin}>
         <input
           type="text"
           placeholder="Username"
@@ -50,10 +51,10 @@ const RegisterPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Register</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );
 };
 
-export default RegisterPage;
+export default Login;
