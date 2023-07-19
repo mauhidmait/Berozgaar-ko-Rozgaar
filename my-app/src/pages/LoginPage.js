@@ -12,12 +12,16 @@ import {
   Container,
 } from "@mui/material";
 import React from "react";
-import blueGradient from "../assests/blueGradient.jpg";
-import womenWithTab from "../assests/womenWithTab.jpg";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 
-import "../pages/login-page.css";
+import {
+  leftSide,
+  rightSide,
+  content,
+  womenStyle,
+  textRightSide,
+} from "./login_page_style";
 export default function LoginPage() {
   const mainGrid = {
     display: "flex",
@@ -26,48 +30,6 @@ export default function LoginPage() {
     height: "100vh",
   };
 
-  const rightSide = {
-    backgroundImage: `url(${blueGradient})`,
-    width: "100%",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
-  const womenStyle = {
-    width: "375px",
-    height: "375px",
-    padding: "1rem",
-    background: `url(${womenWithTab}) no-repeat`,
-    backgroundSize: "contain",
-    position: "relative",
-    borderRadius: "20px",
-  };
-
-  const leftSide = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    background: "#e7eff9",
-    backgroundImage: "linear-gradient(315deg, #e7eff9 0%, #cfd6e6 74%)",
-    width: "100%",
-    height: "100vh",
-  };
-
-  const content = {
-    padding: "1rem",
-    width: "300px",
-    height: "450px",
-  };
-
-  const textRightSide = {
-    position: "absolute",
-    width: "200px",
-    height: "200px",
-    fontSize: "1.25rem",
-    fontFamily: "'Lumanosimo', 'cursive'",
-  };
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
