@@ -1,10 +1,16 @@
 import React from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero'
+import Companies from './components/Companies'
 
 export default function App() {
   return (
-    <div className='text-5xl text-red-500'>Berozgar ko rozgar
-      <div className='text-6xl'>hello</div>
-      hello 
+    <div className='overflow-x-hidden'>
+      
+      <Navbar></Navbar>
+      <Hero></Hero>
+      <Companies></Companies>
+
     </div>
   )
 }
