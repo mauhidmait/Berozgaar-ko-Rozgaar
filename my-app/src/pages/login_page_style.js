@@ -44,3 +44,10 @@ export const textRightSide = {
   fontSize: "1.25rem",
   fontFamily: "'Lumanosimo', 'cursive'",
 };
+
+export const mainGrid = {
+  display: "flex",
+  justifyContent: "space-around",
+  flexWrap: "wrap",
+  height: "100vh",
+};

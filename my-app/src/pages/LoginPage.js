@@ -10,10 +10,12 @@ import {
   Link,
   Stack,
   Container,
+  Typography,
 } from "@mui/material";
 import React from "react";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import { useState } from "react";
 
 import {
   leftSide,
@@ -21,13 +23,39 @@ import {
   content,
   womenStyle,
   textRightSide,
+  mainGrid,
 } from "./login_page_style";
+
 export default function LoginPage() {
-  const mainGrid = {
-    display: "flex",
-    justifyContent: "space-around",
-    flexWrap: "wrap",
-    height: "100vh",
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isValidPassword, setIsValidPassword] = useState(true);
+
+  const emailHandler = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    setIsValidEmail(validateEmail(newEmail));
+  };
+
+  const passwordHandler = (e) => {
+    const newPass = e.target.value;
+    setEmail(newPass);
+    setIsValidPassword(validatePassword(newPass));
+  };
+
+  const submitHandler = () => {
+    console.log(email + " " + password);
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.*[0-9]).{8,}$/;
+    return passwordRegex.test(password);
   };
 
   return (
@@ -41,7 +69,7 @@ export default function LoginPage() {
                   <Grid align="center" marginTop={2}>
                     <Avatar
                       marginBottom={2}
-                      style={{ backgroundColor: "#1976d2" }}
+                      style={{ backgroundColor: "#9181F4" }}
                     ></Avatar>
                     <h3 style={{ marginTop: "1rem" }}>LOGIN</h3>
                   </Grid>
@@ -52,7 +80,18 @@ export default function LoginPage() {
                     fullWidth
                     required
                     variant="standard"
+                    onChange={emailHandler}
                   ></TextField>
+                  {!isValidEmail && (
+                    <Typography
+                      variant="caption"
+                      display="block"
+                      color={"#de1414"}
+                      gutterBottom
+                    >
+                      Please enter a valid email address.
+                    </Typography>
+                  )}
                   <TextField
                     label="Password"
                     placeholder="Enter Password"
@@ -61,7 +100,19 @@ export default function LoginPage() {
                     required
                     variant="standard"
                     margin="normal"
+                    onChange={passwordHandler}
                   ></TextField>
+                  {!isValidPassword && (
+                    <Typography
+                      variant="caption"
+                      display="block"
+                      color={"#de1414"}
+                      gutterBottom
+                    >
+                      Password must be at least 8 characters and contain one
+                      uppercase letter, one symbol, and one digit.
+                    </Typography>
+                  )}
                   <FormControlLabel
                     control={<Checkbox value="remember" color="primary" />}
                     label="Remember me"
@@ -71,7 +122,8 @@ export default function LoginPage() {
                     type="submit"
                     variant="contained"
                     fullWidth
-                    style={{ marginTop: "0.5rem" }}
+                    style={{ marginTop: "0.5rem", backgroundColor: "#9181F4" }}
+                    onClick={submitHandler}
                   >
                     Sign in
                   </Button>
@@ -85,7 +137,7 @@ export default function LoginPage() {
                       spacing={2}
                     >
                       <GoogleIcon style={{ color: "red" }}></GoogleIcon>oogle
-                      <FacebookIcon style={{ color: "blue" }}></FacebookIcon>
+                      <FacebookIcon style={{ color: "#9181F4" }}></FacebookIcon>
                       acebook
                     </Stack>
                   </Grid>
