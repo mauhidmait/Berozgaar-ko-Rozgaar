@@ -13,8 +13,6 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import GoogleIcon from "@mui/icons-material/Google";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import PersonIcon from "@mui/icons-material/Person";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -29,11 +27,13 @@ import {
   mainGrid,
 } from "./login_page_style";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
+  const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
 
   const emailHandler = (e) => {
     const newEmail = e.target.value;
@@ -47,13 +47,25 @@ export default function LoginPage() {
     setIsValidPassword(validatePassword(newPass));
   };
 
+  const confirmPasswordHandler = (e) => {
+    const cpass = e.target.value;
+    setConfirmPassword(cpass);
+    setIsValidConfirmPassword(validConfirmPassword(cpass));
+  };
+
   const submitHandler = () => {
-    console.log(email + " " + password);
+    console.log(email);
+    console.log(password);
+    console.log(confirmPassword);
   };
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  };
+
+  const validConfirmPassword = (cpass) => {
+    return cpass === password;
   };
 
   const validatePassword = (password) => {
@@ -74,15 +86,12 @@ export default function LoginPage() {
                       marginBottom={2}
                       style={{ backgroundColor: "#9181F4" }}
                     ></Avatar>
-                    <h3 style={{ marginTop: "1rem" }}>LOGIN</h3>
+                    <h3 style={{ marginTop: "1rem" }}>Register</h3>
                   </Grid>
+
                   <TextField
-                    label="Username"
-                    value={email}
-                    type="text"
-                    fullWidth
-                    required
-                    variant="standard"
+                    id="input-with-icon-textfield"
+                    label="Email"
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
@@ -90,8 +99,12 @@ export default function LoginPage() {
                         </InputAdornment>
                       ),
                     }}
+                    type="text"
+                    fullWidth
+                    required
+                    variant="standard"
                     onChange={emailHandler}
-                  ></TextField>
+                  />
                   {!isValidEmail && (
                     <Typography
                       variant="caption"
@@ -104,7 +117,6 @@ export default function LoginPage() {
                   )}
                   <TextField
                     label="Password"
-                    value={password}
                     type="password"
                     fullWidth
                     required
@@ -130,6 +142,33 @@ export default function LoginPage() {
                       uppercase letter, one symbol, and one digit.
                     </Typography>
                   )}
+                  <TextField
+                    label="Confirm Password"
+                    placeholder=""
+                    type="password"
+                    fullWidth
+                    required
+                    variant="standard"
+                    margin="normal"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <LockOutlinedIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                    onChange={confirmPasswordHandler}
+                  ></TextField>
+                  {!isValidConfirmPassword && (
+                    <Typography
+                      variant="caption"
+                      display="block"
+                      color={"#de1414"}
+                      gutterBottom
+                    >
+                      Password doesnot matched
+                    </Typography>
+                  )}
                   <FormControlLabel
                     control={<Checkbox value="remember" color="primary" />}
                     label="Remember me"
@@ -139,37 +178,14 @@ export default function LoginPage() {
                     type="submit"
                     variant="contained"
                     fullWidth
-                    style={{ marginTop: "0.5rem", backgroundColor: "#9181F4" }}
+                    style={{
+                      marginTop: "0.5rem",
+                      backgroundColor: "#9181F4",
+                    }}
                     onClick={submitHandler}
                   >
-                    Sign in
+                    Register
                   </Button>
-                  <Grid marginTop={1}>
-                    <h5 align="center">Login with others</h5>
-
-                    <Stack
-                      marginTop={1}
-                      direction="row"
-                      style={{ display: "flex", justifyContent: "center" }}
-                      spacing={2}
-                    >
-                      <GoogleIcon style={{ color: "red" }}></GoogleIcon>oogle
-                      <FacebookIcon style={{ color: "#9181F4" }}></FacebookIcon>
-                      acebook
-                    </Stack>
-                  </Grid>
-                  <Grid container marginTop={2}>
-                    <Grid item xs={12}>
-                      <Link href="#" variant="body2">
-                        Forgot password?
-                      </Link>
-                    </Grid>
-                    <Grid item xs={12} marginTop={1}>
-                      <Link href="#" variant="body2">
-                        {"Don't have an account? Sign Up"}
-                      </Link>
-                    </Grid>
-                  </Grid>
                 </Grid>
               </Paper>
             </Grid>
