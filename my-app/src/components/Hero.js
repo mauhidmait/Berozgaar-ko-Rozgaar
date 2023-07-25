@@ -9,9 +9,9 @@ export default class Hero extends Component {
             {/* left  */}
             <div className='space-y-9 mt-10'>
                 <h1 className=' font-bold text-[45px] sm:text-[60px] leading-[1.3] text-deepBlue transition-all duration-200 ease-in'>
-                    <span className='text-[#47A992]'>Building</span> Careers,
-                    <br /> <span className='text-[#47A992]'>Digitizing</span> Campuses, <br />
-                    <span className='text-[#47A992]'>Revolutionizing</span> Recruitments</h1>
+                    <span className='text-[#5038ED] '>Empowering </span> Journeys,
+                    <br /> <span className='text-[#5038ED]'>Modernizing </span> Campuses, <br />
+                    <span className='text-[#5038ED]'>Elevating </span> Recruitments</h1>
                 <p className=' text-[20px] leading-7 text-black opacity-70 w-[85%] sm:w-[80%] transition-all duration-200 ease-in'>The fastest growing career development platform that brings together academia, companies, students, and alumni in a single place to collaborate and grow.</p>
                 <div className='flex flex-row  space-x-20 w-full'>
                     {/* left div  */}
