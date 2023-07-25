@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 export default function App() {
   return (
-    <div>Berozgar ko rozgar
-      <div>hello</div>
+    <div>
+      {/* <LoginPage></LoginPage> */}
+      <RegisterPage></RegisterPage>
     </div>
-  )
+  );
 }
