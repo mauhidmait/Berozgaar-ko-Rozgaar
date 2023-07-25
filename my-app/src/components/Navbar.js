@@ -1,64 +1,50 @@
-import React from "react";
+import Button from './Button'
+import React, { useState } from "react";
+
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiagramProject } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar(){
+    let Links=[
+        {name:"Home",link:"/"},
+        {name:"Institutions",link:"/"},
+        {name:"Employers",link:"/"},
+        {name:"About us",link:"/"},
+        {name:"Blogs",link:"/"}
+    ];
+    let[open,setOpen]=useState(false);
     return(
-        <nav className="bg-deepBlue">
-           <div className="relative  w-[1080px] items-center flex flex-row justify-between mx-auto">
-            {/* logo */}
-            <div className="cursor-Pointer py-7 pr-7">
-               <h1 className="font-mullish text-4xl font-bold text-white">Edu Log</h1>
-            </div>
-             
-             {/* middle */}
-            
-                <ul className=" flex flex-row space-x-6">
-                    <li className="text-white font-mullish py-7 hover:opacity-70 cursor-pointer transition-all duration-200 relative group">
-                        <a href="#">Home</a>
-                        <div className="absolute bottom-0 w-full h-1 bg-greenLight hidden group-hover:block transition-all duration-200"></div>
-                    </li>
-                    <li className="text-white font-mullish py-7 hover:opacity-70 cursor-pointer transition-all duration-200 relative group">
-                        <a href="#">Institutions</a>
-                        <div className="absolute bottom-0 w-full h-1 bg-greenLight hidden group-hover:block transition-all duration-200"></div>
-                    </li>
-                    <li className="text-white font-mullish py-7 hover:opacity-70 cursor-pointer transition-all duration-200 relative group">
-                        <a href="#">Employers</a>
-                        <div className="absolute bottom-0 w-full h-1 bg-greenLight hidden group-hover:block transition-all duration-200"></div>
-                    </li>
-                    <li className="text-white font-mullish py-7 hover:opacity-70 cursor-pointer transition-all duration-200 relative group">
-                        <a href="#">About us</a>
-                        <div className="absolute bottom-0 w-full h-1 bg-greenLight hidden group-hover:block transition-all duration-200"></div>
-                    </li>
-                    <li className="text-white font-mullish py-7 hover:opacity-70 cursor-pointer transition-all duration-200 relative group">
-                        <a href="#">Blogs</a>
-                        <div className="absolute bottom-0 w-full h-1 bg-greenLight hidden group-hover:block transition-all duration-200"></div>
-                    </li>
-                    
+        <nav className="shadow-md w-full fixed top-0 left-0 ">
+            <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7 ">
+                <div className="font-bold text-2xl cursor-pointer flex items-center text-gray-800">
+                    <span className=" text-3xl text-indigo-600 mr-1 pt-2">
+                    <ion-icon name="magnet-outline"></ion-icon>
+                    </span>
+                    Edu Log 
+                </div>
+                <div onClick={()=>setOpen(!open)} className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden">
+                <ion-icon name={open?'close':'menu'}></ion-icon>
+                {/* <ion-icon name="close-outline"></ion-icon> */}
+                </div>
+                <ul className={`md:flex md:items-center  md:pb-0 pb-12 absolute md:static bg-white  left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in ${open ?'top-20 opacity-100':'top-[-490px]'} md:opacity-100 opacity-0`}>
+                    {
+                        Links.map((link)=>(
+                            <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7">
+                                <a href={link.link} className="text-gray-800 hover:text-gray-400 transition-all duration-200">{link.name}</a>
+                            </li>
+                        ))
+                    }
+                    <Button>
+                        Log in 
+                    </Button>
                 </ul>
-            
 
-            {/* login */}
-            <div className="flex ">
-               <button className=" bg-white py-2 px-7 font-mullish text-deepBlue border rounded-sm text-sm font-bold space-x-10  hover:opacity-90 flex flex-row">Login
-               {/* <FontAwesomeIcon icon={faDiagramProject} className="" /> */}
-               <svg 
-                            viewBox="0 0 24 24"
-                            focusable="false"
-                            class="w-[20px] h-[20px] "
-                            >
-                            <path
-                            fill="currentColor"
-                            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            >
-
-                            </path>
-                    </svg>
-               </button>
-               
             </div>
-          </div>
+
         </nav>
+
+
+           
         
     )
 }

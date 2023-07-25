@@ -6,10 +6,10 @@ export default class Companies extends Component {
   render() {
     return (
       <div className='bg-[#f5f8fe] relative pt-40 pb-12 -z-[10] -mt-[100px]'>
-          <div className='w-[85%] max-w-[1250px] relative mx-auto flex flex-row justify-between items-center'>
+          <div className='w-[85%] max-w-[1250px] relative mx-auto flex flex-col lg:flex-row justify-between items-center space-y-20 lg:space-y-0'>
             {/* left  */}
             <div>
-               <h2 className='font-mullish font-bold text-5xl text-deepBlueHead'>Trusted by Industry</h2>
+               <h2 className='font-bold text-4xl sm:text-5xl text-deepBlueHead'>Trusted by Industry</h2>
             </div>
 
             {/* right  */}
