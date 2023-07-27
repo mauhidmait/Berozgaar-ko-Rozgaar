@@ -1,0 +1,303 @@
+.main-content{
+    font-family: 'Ubuntu';
+}
+
+.llllll{
+    background: rgba(240, 247, 255, 1);
+
+}
+.right-page-main{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.Logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    padding-right: 20px;
+}
+.Logo h4{
+    font-family: 'Ubuntu';
+}
+.input-wrapper{
+    width: 400px;
+    background-color: white;
+    /* border: 1px solid blue; */
+    border-radius: 20px;
+    cursor: pointer;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding-left: 20px;
+    /* background-color: aqua; */
+}
+.input-wrapper input{
+    border: none;
+    padding-left: 10px;
+    background-color: transparent;
+    /* height: 100%; */
+    width: 100%;
+    font-size: 1rem;
+}
+
+.generate-resume{
+    background: rgba(145, 129, 244, 1);
+    color: white;
+    font-family: 'Ubuntu';
+    border-radius: 20px;
+    /* padding: 20px; */
+    display: flex;
+    align-items: center;
+    height: 10px;
+    padding: 14px 70px;
+    margin-left: 5rem;
+    cursor: pointer;
+    font-size: 15px;
+}
+.welcome-banner{
+    background: rgba(145, 129, 244, 1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* width: fit-content; */
+    width: 750px;
+    border-radius: 20px;
+    height: 170px;
+    color: white;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding-left: 30px;
+    margin-top: 30px;
+}
+.welcome-back h4{
+    font-weight: 700;
+}
+.welcome-back{
+    margin-right: -20px;
+    margin-top: 30px;
+}
+.wave-head{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+.wave-head img{
+    margin-left: 30px;
+}
+.desc{
+    font-size: 15px;
+    width: 400px;
+    font-family: 'Ubuntu';
+    padding-top: 20px;
+    font-weight: 100;
+}
+.banner-image{
+    /* margin-top: 34px; */
+    
+}
+.skills-section{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    padding-left: 30px;
+    margin-top: 30px;
+    width: 85%;
+    /* height: 42vh;
+    overflow-y:scroll; */
+    /* border: 10px solid #fff; */
+}
+.list-skills{
+    /* display: flex; */
+    margin-top: 10px;
+    height: 42vh;
+    overflow-y:scroll;
+}
+.list-skills h5{
+    font-size: 13px;
+    font-weight: 700;
+}
+.list-skills p{
+    font-size: 10px;
+    color: gray;
+}
+.one-one{
+    padding: 10px 0px;
+    display: flex;
+    
+    /* border: 2px solid rgba(145, 129, 244, 1) ; */
+    border-radius: 20px;
+    margin-right: 10px;
+    /* width: 100px; */
+}
+.img-div{
+    margin: auto;
+}
+.levels{
+    /* display: flex; */
+    width: 100px;
+}
+.levels div{
+    margin-left: 5px;
+}
+.companies-listed::-webkit-scrollbar,.list-skills::-webkit-scrollbar {
+    width: 5px;
+    
+}   
+.companies-listed::-webkit-scrollbar-track,.list-skills::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+    background-color: rgba(238, 238, 238, 1);
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+   
+.companies-listed::-webkit-scrollbar-thumb,.list-skills::-webkit-scrollbar-thumb {
+    background: rgba(3, 20, 255, 0.381);
+    border-radius: 20px;
+}
+.main-comp{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.main-comp-right{
+    background-color: white;
+    margin: 0;
+    /* width: fit-content; */
+    margin-left: 100px;
+    border-radius: 20px;
+}
+.xyz-company{
+    /* border: 2px solid black; */
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 13px;
+    display: flex;
+    align-items: center;
+    background-color: 
+    rgba(255, 240, 247, 1);
+    
+}
+.numbering{
+    padding: 10px;
+    /* background-color: rgba(255, 29, 134, 1); */
+    border-radius: 50%;
+    width: 3em;
+    height:3em;
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.companies-listed{
+    height: 80vh;
+    overflow-y: scroll;
+    padding-right: 15px;
+    margin-right: -10px;
+}
+.eventsUpcomming{
+    display: flex;
+    justify-content: space-between;
+}
+.message-column{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 35px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(236, 236, 236, 1);
+}
+.seeAll{
+color: rgba(0, 119, 255, 1);
+font-size: 13px;
+font-weight: 700;
+}
+.activities{
+    padding: 25px;
+}
+.activities h5{
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+.date-time-event{
+    font-size: 12px;
+    font-weight: 500;
+    color: gray;
+}
+.jobrole{
+    font-size: 12px;
+    font-weight: 500;
+    color: gray;
+}
+.message-section-block{
+    background-color: white;
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 20px;
+}
+.mid-block-section{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.individual-messages-1{
+    display: flex;
+    margin: 20px 30px;
+    border-bottom: 2px solid rgba(236, 236, 236, 1);
+    padding-bottom: 20px;
+}
+.message-logic-1 h5{
+    font-size: 15px;
+    font-weight: 700;
+}
+.msg-recent{
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(138, 138, 138, 1);
+}
+.message-logic{
+    display: flex;
+}
+.header-id{
+        padding: 10px;
+        /* background-color: rgba(255, 29, 134, 1); */
+        border-radius: 50%;
+        width: 3em;
+        height:3em;
+        display: flex;
+        margin-right: 20px;
+        align-items: center;
+        justify-content: center;
+}
+.time-logic{
+    font-size: 10px;
+    color: rgba(138, 138, 138, 1);
+    display: flex;
+    margin:0 auto;
+}
+.message-logic-1{
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+/* @media screen and (min-width: 768px) and (max-width: 1023px) { */
+
+@media screen and (max-width: 768px) {
+    .welcome-banner{
+        /* grid-template-columns: repeat(1, 1fr); */
+        /* height: 80%; */
+    }
+    .generate-resume{
+        padding: 14px 40px;
+    }
+    .right-page-main{
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .mid-block-section{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
